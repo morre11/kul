@@ -1,0 +1,18 @@
+#7. Countryscheck.sh / ps1. Parameter -country Sverige Om det är Sverige,
+#Danmark, eller Norge skall användare informeras att-Du bor i Skandinavien.
+#Om inte meddela användaren att den inte bor i Skandinavien
+
+while [[ "$#" > 0 ]]; do case $1 in
+  -country) country="$2"; shift;shift;;
+  *) echo "Unknown parameter passed: $1";shift;shift;;
+esac; done
+
+echo "land?"
+read country
+
+if [[ $country == "Sverige" || $country == "Norge" || $country == "Danmark" ]]
+then
+    echo "You are from Scandinavia"
+else
+    echo "You are NOT from Scandinavia"
+fi   
